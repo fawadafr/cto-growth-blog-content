@@ -7,10 +7,5 @@
       "main": true,
       "staging": true
     }
-  },
-  "functions": {
-    "src/pages/rss.xml.js": {
-      "maxDuration": 10
-    }
   }
 }
