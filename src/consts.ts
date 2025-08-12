@@ -2,4 +2,4 @@
 // You can import this data from anywhere in your site by using the `import` keyword.
 
 export const SITE_TITLE = 'Fawad Rashidi';
-export const SITE_DESCRIPTION = 'Growth Through Transformation [STAGING-GROWTH]';
+export const SITE_DESCRIPTION = 'Growth Through Transformation [STAGING READY]';
