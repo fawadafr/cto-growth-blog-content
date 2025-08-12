@@ -1,62 +1,61 @@
-# Astro Starter Kit: Blog
+# CTO Growth Blog Content
 
-```sh
-pnpm create astro@latest -- --template blog
+This repository contains the blog content for the CTO Growth Blog. The content is managed as a git submodule in the main blog repository.
+
+## Content Structure
+
+All blog posts are written in Markdown (.md) or MDX (.mdx) format with frontmatter metadata.
+
+## Frontmatter Schema
+
+Each blog post must include the following frontmatter:
+
+```yaml
+---
+title: "Your Post Title"
+description: "A brief description of your post"
+pubDate: 2024-01-15
+updatedDate: 2024-01-20  # Optional
+heroImage: ./path/to/image.jpg  # Optional
+draft: true  # Set to false or remove to publish
+---
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+### Draft Posts
 
-Features:
+- Set `draft: true` to keep posts as drafts
+- Draft posts are visible in development and preview environments
+- Draft posts are hidden in production
+- Remove `draft: true` or set to `false` to publish
 
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and OpenGraph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
+## Contributing
 
-## 🚀 Project Structure
+1. Create a new branch for your post
+2. Add your markdown file with proper frontmatter
+3. Set `draft: true` initially
+4. Submit a pull request for review
+5. Once approved, remove `draft: true` to publish
 
-Inside of your Astro project, you'll see the following folders and files:
+## File Naming
 
-```text
-├── public/
-├── src/
-│   ├── components/
-│   ├── content/
-│   ├── layouts/
-│   └── pages/
-├── astro.config.mjs
-├── README.md
-├── package.json
-└── tsconfig.json
-```
+- Use kebab-case for filenames: `my-blog-post.md`
+- Include the date in the filename for organization: `2024-01-15-my-blog-post.md`
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Images
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+- Place images in the same directory as your post
+- Reference them in frontmatter as `./image-name.jpg`
+- Use descriptive filenames
 
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
+## Publishing Workflow
 
-Any static assets, like images, can be placed in the `public/` directory.
+1. **Draft**: Post with `draft: true` - visible in dev/preview
+2. **Review**: Create PR for review
+3. **Publish**: Remove `draft: true` and merge PR
+4. **Live**: Post appears on production site
 
-## 🧞 Commands
+## Environment Behavior
 
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
-
-## Credit
-
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+- **Development**: All posts visible (including drafts)
+- **Preview/Staging**: All posts visible (including drafts)
+- **Production**: Only published posts visible (drafts hidden)

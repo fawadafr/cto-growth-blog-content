@@ -7,7 +7,13 @@ import FormattedDate from '../../components/FormattedDate.astro';
 import Header from '../../components/Header.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
 
-const posts = (await getCollection('blog')).sort(
+// Filter posts based on environment: show drafts in dev/preview, hide in production
+const allPosts = await getCollection('blog', ({ data }) => {
+	// In production, hide drafts. In dev/preview, show everything
+	return import.meta.env.PROD ? !data.draft : true;
+});
+
+const posts = allPosts.sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 ---
